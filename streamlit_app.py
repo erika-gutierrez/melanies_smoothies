@@ -61,11 +61,6 @@ if ingredients_list:
 #New section to display fuirtyvice nutrition information
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-try:
-    data = fruityvice_response.json()
-    st.text(data)
-except ValueError as e:
-    st.error("Failed to decode JSON")
-    st.text(fruityvice_response.text)  # Print the raw response for debugging
-
+#st.text(fruityvice_response)
+fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=true)
 
